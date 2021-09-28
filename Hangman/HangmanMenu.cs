@@ -2,7 +2,7 @@
 
 namespace Hangman
 {
-    class HangmanMenu
+    public class HangmanMenu
     {
         private HangmanGame hangmanGame;
 

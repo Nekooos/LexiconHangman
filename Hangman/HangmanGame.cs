@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Text;
-using System.Text.RegularExpressions;
 
 namespace Hangman
 {
-    class HangmanGame
+    public class HangmanGame
     {
         private HangmanService hangmanService;
 
@@ -25,12 +24,12 @@ namespace Hangman
             while (!isGuessCorrect)
             {
                 Console.WriteLine($"{wrongGuessCount}/10 wrong guesses");
-                printArray(correctGuesses);
-                String guess = validGuess().ToLower();
+                PrintArray(correctGuesses);
+                String guess = hangmanService.ValidGuess().ToLower();
 
                 if(guess.Length > 1)
                 {
-                    isGuessCorrect = CheckCorrectGuess(guess, answer);
+                    isGuessCorrect = hangmanService.CheckCorrectGuess(guess, answer);
                     wrongGuessCount = wrongGuessCount + (isGuessCorrect ? 0 : 1);
                 } 
                 else
@@ -56,7 +55,7 @@ namespace Hangman
             }
         }
 
-        private void printArray(char[] guesses)
+        private void PrintArray(char[] guesses)
         {
             foreach (char letter in guesses)
             {
@@ -65,36 +64,5 @@ namespace Hangman
             Console.WriteLine("\n");
         }
 
-        private bool CheckCorrectGuess(String guess, String answer)
-        {
-            if (answer.Equals(guess))
-            {
-                Console.WriteLine($"Your guess: {guess} was correct! \n");
-                return true;
-            }
-            else
-            {
-                Console.WriteLine($"Your guess: {guess} was incorrect. \n");
-                return false;
-            }
-        }
-
-        public String validGuess()
-        {
-            String input = "";
-            bool isValid = false;
-            while (!isValid)
-            {
-                Console.WriteLine("Enter a guess from a-ö or the word");
-                input = Console.ReadLine();
-                isValid = Regex.IsMatch(input, @"^[a-öA-Ö]+$");
-
-                if (!isValid)
-                {
-                    Console.WriteLine("Not a valid guess");
-                }
-            }
-            return input;
-        }
     }
 }

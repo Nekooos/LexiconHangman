@@ -2,7 +2,7 @@
 
 namespace Hangman
 {
-    class WordRepository
+    public class WordRepository
     {
         private String[] words = new string[] 
         {

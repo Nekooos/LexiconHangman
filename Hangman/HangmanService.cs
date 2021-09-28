@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Hangman
 {
-    class HangmanService
+    public class HangmanService
     {
 
         private WordRepository wordRepository;
@@ -41,6 +42,38 @@ namespace Hangman
                 }
             }
             return correctGuesses;
+        }
+
+        public String ValidGuess()
+        {
+            String input = "";
+            bool isValid = false;
+            while (!isValid)
+            {
+                Console.WriteLine("Enter a guess from a-ö or the word");
+                input = Console.ReadLine();
+                isValid = Regex.IsMatch(input, @"^[a-öA-Ö]+$");
+
+                if (!isValid)
+                {
+                    Console.WriteLine("Not a valid guess");
+                }
+            }
+            return input;
+        }
+
+        public bool CheckCorrectGuess(String guess, String answer)
+        {
+            if (answer.Equals(guess))
+            {
+                Console.WriteLine($"Your guess: {guess} was correct! \n");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine($"Your guess: {guess} was incorrect. \n");
+                return false;
+            }
         }
     }
 }
