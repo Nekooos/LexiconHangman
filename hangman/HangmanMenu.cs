@@ -11,18 +11,18 @@ namespace Hangman
             hangmanGame = new HangmanGame();
         }
 
-        public void start()
+        public void Start()
         {
             bool isRunning = true;
 
             while(isRunning)
             {
-                showMenu();
-                int input = validMenuInput();
+                ShowMenu();
+                int input = ValidMenuInput();
 
                 if (input == 1)
                 {
-                    hangmanGame.start();
+                    hangmanGame.Start();
                 }
                 else
                 {
@@ -31,12 +31,12 @@ namespace Hangman
             }
         }
 
-        private void showMenu()
+        private void ShowMenu()
         {
             Console.WriteLine("1. Start\n2. Exit\n");
         } 
 
-        private int validMenuInput()
+        private int ValidMenuInput()
         {
             bool isValidNumber = false;
             int input = 0;

@@ -12,14 +12,14 @@ namespace Hangman
             hangmanService = new HangmanService();
         }
 
-        public void start()
+        public void Start()
         {
             int wrongGuessCount = 0;
-            String answer = hangmanService.randomizeWord().ToLower();
+            String answer = hangmanService.RandomizeWord().ToLower();
             bool isGuessCorrect = false;
             char[] correctGuesses = new char[answer.Length];
             StringBuilder wrongGuesses = new StringBuilder();
-            correctGuesses = hangmanService.fillArrayWithUnderscore(correctGuesses);
+            correctGuesses = hangmanService.FillArrayWithUnderscore(correctGuesses);
 
             while (!isGuessCorrect)
             {
@@ -35,7 +35,7 @@ namespace Hangman
                 else
                 {
                     if(answer.Contains(guess)) {
-                        correctGuesses = hangmanService.insertGuessInArray(correctGuesses, guess, answer);
+                        correctGuesses = hangmanService.InsertGuessInArray(correctGuesses, guess, answer);
                     } 
                     else
                     {

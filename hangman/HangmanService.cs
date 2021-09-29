@@ -14,19 +14,19 @@ namespace Hangman
             wordRepository = new WordRepository();
         }
 
-        public String randomizeWord()
+        public String RandomizeWord()
         {
             String[] words = wordRepository.GetAll();
             Random random = new Random();
             return words.ElementAt(random.Next(0, words.Count()-1));
         }
 
-        public char[] fillArrayWithUnderscore(char[] letters)
+        public char[] FillArrayWithUnderscore(char[] letters)
         {
             return Enumerable.Range(1, letters.Length).Select(i => '_').ToArray();
         }
 
-        public char[] insertGuessInArray(char[] correctGuesses, String guess, String answer)
+        public char[] InsertGuessInArray(char[] correctGuesses, String guess, String answer)
         {
             char charGuess = char.Parse(guess);
 

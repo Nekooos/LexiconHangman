@@ -13,7 +13,7 @@ namespace hangman_tests
         }
 
         [Fact]
-        public void getAllTest()
+        public void GetAllTest()
         {
             String[] expectedWords = new string[]
             {

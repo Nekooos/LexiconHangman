@@ -7,7 +7,7 @@ namespace Hangman
         static void Main(string[] args)
         {
             HangmanMenu hangmanMenu = new HangmanMenu();
-            hangmanMenu.start();
+            hangmanMenu.Start();
         }
     }
 }
