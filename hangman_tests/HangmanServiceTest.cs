@@ -26,7 +26,7 @@ namespace hangmanServiceTest
         }
 
         [Fact]
-        public void InsertGuessInArray()
+        public void InsertGuessInArrayTest()
         {
             char[] testArray = new char[] { '_', '_', '_', '_', '_', '_' };
             char[] expectedArray = new char[] { '_', '_', 'n', '_', '_', 'n' };
@@ -100,7 +100,7 @@ namespace hangmanServiceTest
 
             String expectedOutput = "Enter a guess from a-ö or the word\r\n";
 
-            Assert.Equal(expectedOutput, output.ToString());
+            Assert.Equal(output.ToString(),expectedOutput);
             Assert.Equal(expectedGuess, testGuess);
         }
     }

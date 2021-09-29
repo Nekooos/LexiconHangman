@@ -23,11 +23,7 @@ namespace Hangman
 
         public char[] fillArrayWithUnderscore(char[] letters)
         {
-            for(int i = 0; i < letters.Length; i++)
-            {
-                letters[i] = '_';
-            }
-            return letters;
+            return Enumerable.Range(1, letters.Length).Select(i => '_').ToArray();
         }
 
         public char[] insertGuessInArray(char[] correctGuesses, String guess, String answer)
