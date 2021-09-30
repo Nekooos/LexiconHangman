@@ -40,7 +40,7 @@ namespace Hangman
 
         public void deleteTextFile()
         {
-            if (!File.Exists(path))
+            if (File.Exists(path))
             {
                 File.Delete(path);
             }
