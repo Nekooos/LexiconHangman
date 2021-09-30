@@ -4,7 +4,7 @@ using Xunit;
 
 namespace hangman_tests
 {
-    public class WordRepositoryTests
+    public class WordRepositoryTests : IDisposable
     {
         private WordRepository wordRepository;
         public WordRepositoryTests()
@@ -28,6 +28,11 @@ namespace hangman_tests
             String[] words = wordRepository.GetAll();
 
             Assert.Equal(expectedWords, words);
+        }
+
+        public void Dispose()
+        {
+            wordRepository.deleteTextFile();
         }
     }
 }

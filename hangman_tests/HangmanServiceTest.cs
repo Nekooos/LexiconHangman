@@ -20,7 +20,7 @@ namespace hangmanServiceTest
             char[] testArray = new char[5];
             char[] expectedArray = new char[] { '_', '_', '_', '_', '_' };
 
-            testArray = hangmanService.fillArrayWithUnderscore(testArray);
+            testArray = hangmanService.FillArrayWithUnderscore(testArray);
             
             Assert.Equal(expectedArray, testArray);
         }
@@ -31,7 +31,7 @@ namespace hangmanServiceTest
             char[] testArray = new char[] { '_', '_', '_', '_', '_', '_' };
             char[] expectedArray = new char[] { '_', '_', 'n', '_', '_', 'n' };
 
-            testArray = hangmanService.insertGuessInArray(testArray, "n", "bensin");
+            testArray = hangmanService.InsertGuessInArray(testArray, "n", "bensin");
 
             Assert.Equal(testArray, expectedArray);
         }
@@ -42,7 +42,7 @@ namespace hangmanServiceTest
             WordRepository wordRepository = new WordRepository();
             String[] expetcedWords = wordRepository.GetAll();
 
-            String testWord = hangmanService.randomizeWord();
+            String testWord = hangmanService.RandomizeWord();
 
             Assert.True(Array.Exists(expetcedWords, expected => testWord.Equals(expected)));
         }
